@@ -2,34 +2,19 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Image from "next/image";
+import { properties } from "@/lib/data";
 import { Button } from "./ui";
 
 const SLIDE_MS = 9000;
 
-// Hero slides — first slide uses the Dubai photo, rest keep gradient fallbacks
-const slides = [
-  {
-    image: "/dubai-hero.jpg",
-    title: "NOT A HOTEL",
-    subtitle: "Iconic Creators,\nExceptional Locations.",
-    tag: "Dubai · Palm Jumeirah",
-    h: 30,
-  },
-  {
-    image: null,
-    title: "NOT A HOTEL",
-    subtitle: "Own What Inspires\nYou Most.",
-    tag: "Kitakaruizawa · Forest Flagship",
-    h: 115,
-  },
-  {
-    image: null,
-    title: "NOT A HOTEL",
-    subtitle: "Zero Upkeep,\nInfinite Returns.",
-    tag: "Miura · Pool Club",
-    h: 195,
-  },
-];
+// Hero slides — the four Heart of Europe properties (gradient placeholders, no photography)
+const slides = properties.map((p) => ({
+  title: p.name,
+  subtitle: p.tagline,
+  tag: `The Heart of Europe · ${p.price}`,
+  h: p.h,
+  image: p.hero,
+}));
 
 export default function Hero() {
   const [cur, setCur] = useState(0);
@@ -78,25 +63,14 @@ export default function Hero() {
           }`}
         >
           {/* Background */}
-          {s.image ? (
-            <div className={`absolute inset-0 transition-transform duration-[12000ms] ease-out ${i === cur ? "scale-100" : "scale-[1.08]"}`}>
-              <Image
-                src={s.image}
-                alt="Dubai luxury property"
-                fill
-                priority={i === 0}
-                className="object-cover object-center"
-                sizes="100vw"
-              />
-            </div>
-          ) : (
-            <div
-              className={`absolute inset-0 transition-transform duration-[12000ms] ease-out ${i === cur ? "scale-100" : "scale-[1.08]"}`}
-              style={{
-                background: `linear-gradient(160deg, hsl(${s.h} 35% 28%), hsl(${s.h + 40} 25% 12%))`,
-              }}
-            />
-          )}
+          <div
+            className={`absolute inset-0 transition-transform duration-[12000ms] ease-out ${i === cur ? "scale-100" : "scale-[1.08]"}`}
+            style={{
+              background: `linear-gradient(160deg, hsl(${s.h} 35% 28%), hsl(${s.h + 40} 25% 12%))`,
+            }}
+          >
+            <Image src={s.image} alt={`${s.title} — The Heart of Europe`} fill priority={i === 0} sizes="100vw" className="object-cover object-center" />
+          </div>
 
           {/* Dark gradient overlays — top and bottom */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/70" />
@@ -192,10 +166,10 @@ function HeroCta() {
       className="pointer-events-none fixed inset-x-0 bottom-0 z-[5] flex justify-center gap-2 px-4 pb-[42px] transition-[opacity,visibility] duration-300 pc:gap-4"
     >
       <Button href="#lineup" variant="glass" className="pointer-events-auto !min-w-0 !px-11 pc:!px-[67px]">
-        View details
+        View Residence
       </Button>
       <Button href="#catalog" variant="primary" className="pointer-events-auto !min-w-0 !px-11 pc:!px-[67px]">
-        Pre-order
+        Private Consultation
       </Button>
     </div>
   );

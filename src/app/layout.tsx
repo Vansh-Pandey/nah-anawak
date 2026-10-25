@@ -7,8 +7,8 @@ const noto = Noto_Sans_JP({ variable: "--font-noto-jp", subsets: ["latin"], weig
 const oswald = Oswald({ variable: "--font-oswald", subsets: ["latin"], weight: ["500", "600"] });
 
 export const metadata: Metadata = {
-  title: "NOT A HOTEL — Replica",
-  description: "Design replica of a second-home ownership brand site, built with Next.js and Tailwind. Placeholder content.",
+  title: "ANAWAK — Own More Than a Home. Own Your Future.",
+  description: "ANAWAK by JWD Group — exceptional waterfront residences and investment opportunities. Live Beyond Ownership.",
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover" };

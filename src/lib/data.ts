@@ -1,59 +1,59 @@
-// Original placeholder content standing in for the reference site's copy and media.
+// ANAWAK content — taken from the ANAWAK site (jwd/src/locales/en.json, jwd/src/data/content.ts).
 
-export const places: [string, number][] = [
-  ["Yugawara", 20], ["Miura", 195], ["Setouchi", 205], ["Ishigaki", 170], ["Minakami", 130],
-  ["Kitakaruizawa", 110], ["Fukuoka", 280], ["Nasu", 80], ["Aoshima", 185],
+export const properties = [
+  { id: "seahorse", name: "SEAHORSE", tagline: "Floating villas anchored above a private lagoon.", price: "$10,600,000", unit: "2 BEDROOMS · 3 LEVELS", h: 195, hero: "/properties/seahorse/8.jpg", panel: "/properties/seahorse/5.jpg" },
+  { id: "portofino", name: "PORTOFINO", tagline: "Mediterranean-inspired waterfront living, reimagined.", price: "$845,000 – $1,256,214", unit: "STUDIO – 2 BEDROOMS", h: 20, hero: "/properties/portofino/1.jpg", panel: "/properties/portofino/3.jpg" },
+  { id: "germany-island", name: "GERMANY ISLAND", tagline: "A private island retreat within the World Islands archipelago.", price: "$8,170,000", unit: "LAGOON VILLA", h: 140, hero: "/properties/germany-island/8.jpg", panel: "/properties/germany-island/1.jpg" },
+  { id: "cote-dazur", name: "CÔTE D'AZUR", tagline: "The glamour of the French Riviera, set on the Arabian Gulf.", price: "$610,000 – $1,220,000", unit: "STUDIO – 2 BEDROOMS", h: 215, hero: "/properties/cote-dazur/2.jpg", panel: "/properties/cote-dazur/9.jpg" },
 ];
 
-export const slides = [
-  { theme: "Stay-anywhere pod", title: "POD", note: "Pre-orders open", cond: "From ¥XX,XXX,XXX", h: 215 },
-  { theme: "Hot-spring suite", title: "YUGAWARA", note: "Placeholder note", cond: "From ¥34,520,000", h: 25 },
-  { theme: "Pool club", title: "POOL CLUB", note: "Placeholder note", cond: "From ¥29,040,000", h: 195 },
-  { theme: "Forest flagship", title: "IRORI 2.0", note: "Placeholder note", cond: "From ¥70,920,000", h: 115 },
-  { theme: "Heritage collection", title: "HERITAGE", note: "Placeholder note", cond: "Inquire", h: 300 },
-];
+
+export const slides = properties.map((p) => ({
+  theme: "The Heart of Europe", title: p.name, note: p.tagline, cond: `Price: ${p.price}`, h: p.h,
+}));
 
 export const lineup = [
-  { name: "ONSEN SUITE", area: "YUGAWARA", concept: "Immersive hot-spring time", price: "¥34,520,000~", tag: "NEW", h: 25 },
-  { name: "POOL CLUB", area: "MIURA", concept: "A seaside pool base", price: "¥29,040,000~", tag: "", h: 195 },
-  { name: "IRORI 2.0", area: "KITAKARUIZAWA", concept: "Flagship with a pool", price: "¥70,920,000~", tag: "NEW", h: 115 },
-  { name: "BASE L", area: "KITAKARUIZAWA", concept: "A-frame, chosen by feel", price: "¥31,200,000~", tag: "NEW", h: 95 },
-  { name: "YUAMI", area: "YUGAWARA", concept: "Seven baths, one retreat", price: "¥265,300,000~", tag: "NEW", h: 15 },
-  { name: "SUMMIT HOUSE", area: "RUSUTSU", concept: "Architecture on a peak", price: "", tag: "", h: 220 },
-  { name: "CITY HOUSE", area: "TOKYO", concept: "A one-of-a-kind city build", price: "", tag: "", h: 260 },
-  { name: "NATURE WITHIN", area: "KITAKARUIZAWA", concept: "Big roof, big rock, big space", price: "Waitlist", tag: "", h: 140 },
+  ...properties.map((p) => ({ name: p.name, area: p.unit, concept: p.tagline, price: p.price, tag: "", h: p.h })),
+  { name: "WATERFRONT VILLAS", area: "RESIDENCES", concept: "Where the sea becomes your garden.", price: "", tag: "", h: 175 },
+  { name: "MARINA RESIDENCES", area: "RESIDENCES", concept: "The skyline, at your window.", price: "", tag: "", h: 230 },
+  { name: "SIGNATURE ESTATES", area: "RESIDENCES", concept: "Architecture worthy of a legacy.", price: "", tag: "", h: 120 },
+  { name: "INSPECTION TOUR", area: "6 DAYS, 5 NIGHTS", concept: "Walk the city before you own it.", price: "¥550,000", tag: "", h: 40 },
 ];
 
 export const features = [
-  { n: "01", title: "Own only what you need", desc: "Buy from 10 nights a year and use them every year.", h: 160 },
-  { n: "02", title: "Hold it as an asset", desc: "Real ownership: you can sell it or pass it on.", h: 200 },
-  { n: "03", title: "Use the whole network", desc: "Owners can stay at houses across the country.", h: 40 },
-  { n: "04", title: "Zero upkeep", desc: "No maintenance worries and no per-stay room charges.", h: 260 },
+  { n: "01", title: "Private Consultation", desc: "An unhurried conversation — in English or Japanese — to understand your family, your goals, and the life you envision.", h: 160 },
+  { n: "02", title: "Curated Selection", desc: "A shortlist of residences chosen for architecture, waterfront, and enduring value. Never a catalogue — always a curation.", h: 200 },
+  { n: "03", title: "Seamless Acquisition", desc: "Legal, financial, and residency guidance handled with private-banking precision, from first viewing to final signature.", h: 40 },
+  { n: "04", title: "Enduring Stewardship", desc: "Management, advisory, and legacy planning that continues long after the keys are yours — across generations.", h: 260 },
 ];
 
 export const news = [
-  "Company renames and strengthens its group structure", "Four-year culture complex opens in the city",
-  "Mobility subscription plan launches", "Flagship jet goes on sale", "First housing product opens for pre-order",
-  "A new house opens in the forest", "Three more units released for general sale", "Site visit on the city project",
+  "Day 1 — Arrival & the Desert", "Day 2 — Seminar & Property Tours", "Day 3 — A Day at Your Own Pace",
+  "Day 4 — Marina Cruise & Departure Prep", "Day 5 — Home",
 ];
 export const owners = [
-  "“Time here brings adults and kids closer.”", "“Not a resort condo, not a members club — pure rest.”",
-  "“A night here is worth ten dinners.”", "“Growing with it is the best gift to our kids.”",
-  "“I plan my whole year around my stays.”", "“Not having to think is my biggest luxury.”",
-  "“The energy here fuels my work.”", "“My life changes after I go home.”",
+  "“ANAWAK guided our family’s first overseas acquisition with a discretion and clarity we had not encountered before.”",
+  "“More than a residence — they curated a lifestyle our children will inherit.”",
+  "“The process felt like private banking: precise, unhurried, and deeply personal.”",
 ];
 export const creators: [string, string][] = [
-  ["Architect Name (Studio A)", "Immersed in a valley"], ["Architect Name (Studio B)", "A villa that melts into nature"],
-  ["Architect Name (Studio C)", "A place for family through the seasons"], ["Architect Name (Studio D)", "Architecture born from the site"],
-  ["Architect Name (Studio E)", "An oasis beyond the wild"], ["Architect Name (Studio F)", "A timeless place"],
-  ["Designer Name", "Where past and future cross"], ["Architect Name (Studio G)", "A new kind of luxury"],
+  ["Japan Worldlink DWC", "The founding company connecting Japanese vision with the most distinguished addresses."],
+  ["JWD INVESTMENT", "Strategic capital and asset management behind the group’s most ambitious ventures."],
+  ["JWD Luna Travel & Tourism LLC", "Curated travel and tourism experiences."],
 ];
-export const movies = ["Hot-spring retreat", "Forest flagship", "Mountain-top house", "City house, directed film", "Heritage — Kyoto", "Vertex — Okinawa", "Earth — Ishigaki"];
+export const movies = [
+  { title: "Seahorse — Video 1", poster: "/properties/seahorse/11.jpg", src: "/properties/seahorse/video-1.mp4" },
+  { title: "Seahorse — Video 2", poster: "/properties/seahorse/5.jpg", src: "/properties/seahorse/video-2.mp4" },
+  { title: "Portofino — Video 1", poster: "/properties/portofino/2.jpg", src: "/properties/portofino/video-1.mp4" },
+  { title: "Portofino — Video 2", poster: "/properties/portofino/3.jpg", src: "/properties/portofino/video-2.mp4" },
+  { title: "Côte d'Azur — Video 1", poster: "/properties/cote-dazur/9.jpg", src: "/properties/cote-dazur/video-1.mp4" },
+  { title: "Côte d'Azur — Video 2", poster: "/properties/cote-dazur/6.jpg", src: "/properties/cote-dazur/video-2.mp4" },
+  { title: "Côte d'Azur — Video 3", poster: "/properties/cote-dazur/1.jpg", src: "/properties/cote-dazur/video-3.mp4" },
+];
 
 export const menus = {
-  about: ["About", "Marketplace", "Club house", "Management services", "Stories", "Owners", "Creators", "Architects", "Smart home"],
-  related: ["Pod", "Garage", "Museum", "Heritage", "Japa Valley", "The New Japan", "Design competition", "Abroad", "DAO", "Membership NFT", "Construction"],
-  company: ["Company", "Mission", "Office", "Sustainability", "Careers", "Public notice", "FAQ", "Contact"],
+  about: ["Trust", "Lifestyle", "Legacy", "The Ownership Journey", "The Inspection Tour", "Client Voices"],
+  related: ["Japan Worldlink DWC", "JWD INVESTMENT", "JWD Luna Travel & Tourism LLC"],
+  company: ["Company Profile", "About JWD Group", "Our Advisors", "Press", "Careers", "Consultation"],
 };
-export const legal = ["Company", "Careers", "How to buy", "Commercial law", "Antiques law", "Travel industry law", "Terms", "Payment services act",
-  "NFT terms", "Financial instruments", "Safe operations", "Solicitation policy", "Privacy policy", "External transmission", "Media kit"];
+export const legal = ["Company Profile", "About JWD Group", "Our Advisors", "Press", "Careers", "Consultation", "Privacy", "Terms"];

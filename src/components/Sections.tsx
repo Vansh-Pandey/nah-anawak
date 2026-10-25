@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { features, movies, news, owners, creators } from "@/lib/data";
+import { features, movies, news, owners, creators, properties } from "@/lib/data";
 import { Button, Reveal, TextLink, Track } from "./ui";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -56,16 +56,15 @@ export function Manifesto() {
           data-line
           className="font-sans text-[clamp(32px,5.5vw,88px)] font-bold leading-[1.1] tracking-[-0.02em] text-white"
         >
-          Every detail, from the architecture
-          <br className="hidden pc:block" /> to the experience, is crafted
-          <br className="hidden pc:block" /> for unparalleled excellence.
+          ANAWAK is not selling property.
+          <br className="hidden pc:block" /> ANAWAK is curating
+          <br className="hidden pc:block" /> a life without compromise.
         </h2>
         <p
           data-line
           className="mt-[clamp(32px,5vw,72px)] font-sans text-[clamp(32px,5.5vw,88px)] font-bold leading-[1.1] tracking-[-0.02em] text-white opacity-[0.18]"
         >
-          New standards of hospitality
-          <br className="hidden pc:block" /> to match our new ways of living.
+          Live Beyond Ownership.
         </p>
       </div>
     </section>
@@ -79,49 +78,11 @@ export function Manifesto() {
    location+designer subtitle, blue pill CTA.
    The panels stack as you scroll (sticky-style).
 ───────────────────────────────────────────── */
-const properties = [
-  {
-    id: "rusutsu",
-    name: "RUSUTSU",
-    location: "Located in Hokkaido, Japan",
-    designer: "Designed by Snøhetta",
-    img: "/property-rusutsu.jpg",
-  },
-  {
-    id: "tokyo",
-    name: "TOKYO",
-    location: "Located in Chiba, Japan",
-    designer: "Directed by NIGO®",
-    img: "/property-tokyo.jpg",
-  },
-  {
-    id: "setouchi",
-    name: "SETOUCHI",
-    location: "Located in Hiroshima, Japan",
-    designer: "Designed by BIG",
-    img: "/property-setouchi.jpg",
-  },
-  {
-    id: "onsen",
-    name: "ONSEN SUITE",
-    location: "Located in Yugawara, Japan",
-    designer: "Designed by NOT A HOTEL ARCHITECTS",
-    img: "/property-onsen.jpg",
-  },
-  {
-    id: "dubai",
-    name: "DUBAI",
-    location: "Located in Palm Jumeirah, UAE",
-    designer: "Designed by NOT A HOTEL ARCHITECTS",
-    img: "/dubai-hero.jpg",
-  },
-];
-
 function PropertyPanel({
   prop,
   index,
 }: {
-  prop: (typeof properties)[0];
+  prop: (typeof properties)[number];
   index: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -169,15 +130,12 @@ function PropertyPanel({
       className="relative h-svh min-h-[500px] overflow-hidden"
     >
       {/* Photo */}
-      <div data-img className="absolute inset-0">
-        <Image
-          src={prop.img}
-          alt={prop.name}
-          fill
-          className="object-cover object-center"
-          sizes="100vw"
-          priority={index === 0}
-        />
+      <div
+        data-img
+        className="absolute inset-0"
+        style={{ background: `linear-gradient(160deg, hsl(${prop.h} 35% 28%), hsl(${prop.h + 40} 25% 12%))` }}
+      >
+        <Image src={prop.panel} alt={prop.name} fill sizes="100vw" className="object-cover object-center" />
       </div>
 
       {/* Dark overlays */}
@@ -190,7 +148,7 @@ function PropertyPanel({
           data-reveal
           className="absolute left-[var(--pad)] top-[calc(var(--header-h)+24px)] text-[11px] font-semibold uppercase tracking-[0.2em] text-white/60"
         >
-          Explore Our Properties
+          The Heart of Europe
         </div>
       )}
 
@@ -203,14 +161,14 @@ function PropertyPanel({
           {prop.name}
         </h2>
         <p data-reveal className="text-[14px] font-light tracking-wide text-white/90 pc:text-[16px]">
-          {prop.location}&nbsp;|&nbsp;{prop.designer}
+          {prop.tagline}&nbsp;|&nbsp;{prop.price}
         </p>
         <Link
           data-reveal
           href="#catalog"
           className="mt-2 inline-flex items-center rounded-full bg-[#0171e3] px-7 py-3 text-[13px] font-semibold text-white transition-transform duration-300 hover:scale-105 pc:px-9 pc:py-3.5 pc:text-[14px]"
         >
-          Get our brochure
+          Request Information
         </Link>
       </div>
     </div>
@@ -224,8 +182,8 @@ export function Lineup() {
         <PropertyPanel key={p.id} prop={p} index={i} />
       ))}
       <div className="flex flex-col items-center gap-4 bg-[#0a0a0a] px-[var(--pad)] py-16 pc:flex-row pc:justify-center pc:gap-6">
-        <Button variant="glass" href="#">See all properties</Button>
-        <Button variant="primary" href="#catalog">Request a catalog</Button>
+        <Button variant="glass" href="#">View Residences</Button>
+        <Button variant="primary" href="#catalog">Request the Portfolio</Button>
       </div>
     </section>
   );
@@ -243,7 +201,7 @@ export function Features() {
     >
       <Reveal>
         <h2 className="pt-10 text-[clamp(20px,2.5vw,32px)] font-semibold leading-none tracking-[-0.01em]">
-          What makes it different
+          From first conversation to family legacy.
         </h2>
       </Reveal>
       <div className="mt-10 grid grid-cols-1 gap-4 pc:grid-cols-4 pc:gap-6">
@@ -273,7 +231,7 @@ export function Features() {
         ))}
       </div>
       <div className="mt-10 flex justify-center">
-        <TextLink white>Learn more</TextLink>
+        <TextLink white href="#catalog">Arrange a Consultation</TextLink>
       </div>
     </section>
   );
@@ -293,9 +251,9 @@ export function BrandFilm() {
         <div className="absolute inset-0 bg-black/30" />
         <Reveal className="relative z-[1] px-[var(--pad)] text-center">
           <p className="font-sans text-[clamp(28px,4.5vw,60px)] font-bold leading-[1.3] tracking-[-0.02em] text-white">
-            A home, anywhere
+            Own More Than a Home.
             <br />
-            in the world.
+            Own Your Future.
           </p>
         </Reveal>
       </div>
@@ -304,9 +262,10 @@ export function BrandFilm() {
       <div className="flex flex-col items-center gap-8 px-[var(--pad)] py-16 text-center text-white pc:py-20">
         <Reveal>
           <p className="max-w-[700px] text-[13px] font-light leading-[2.2] tracking-[0.02em] text-white/70 pc:text-[17px]">
-            Own only the nights you need, hold the property as a real asset,
-            and enjoy access to a whole network of exceptional houses around the world.
-            Architecture and experience, crafted by the world&apos;s greatest creators.
+            Every home represents a carefully selected opportunity to live with greater freedom,
+            security, prosperity, and global connectivity. Whether for investment, family legacy,
+            or a second home, ANAWAK serves as a trusted advisor guiding you toward an
+            exceptional international lifestyle.
           </p>
         </Reveal>
         <button
@@ -314,7 +273,7 @@ export function BrandFilm() {
           onClick={() => dlg.current?.showModal()}
           className="inline-flex items-center gap-2 text-[14px] font-semibold tracking-[0.04em] text-[#0171e3] transition-opacity hover:opacity-70"
         >
-          Watch the 2-minute film
+          The ANAWAK Standard
           <i className="block size-[7px] rotate-45 border-t-[1.5px] border-r-[1.5px] border-current" />
         </button>
       </div>
@@ -352,14 +311,14 @@ export function CatalogCta() {
     >
       <Reveal>
         <div className="grid aspect-[3/4] w-[180px] -rotate-3 place-items-center rounded-[6px] bg-gradient-to-br from-[#1a1a1a] to-[#404040] text-[13px] font-bold tracking-[0.3em] text-white shadow-[0_28px_60px_#0004]">
-          CATALOG
+          PORTFOLIO
         </div>
       </Reveal>
       <Reveal className="flex max-w-[380px] flex-col items-center gap-6 pc:items-start" delay={0.1}>
         <p className="text-[14px] leading-[1.9] text-[#333]">
-          Request a brochure today and receive our printed catalog free of charge.
+          Our advisors welcome you for a private, unhurried conversation — in English or Japanese — about residences, legacy, and life.
         </p>
-        <Button variant="primary" className="pc:!min-w-[240px]">Learn more</Button>
+        <Button variant="primary" className="pc:!min-w-[240px]">Arrange a Consultation</Button>
       </Reveal>
     </section>
   );
@@ -395,7 +354,7 @@ function Dark({
 export function News() {
   return (
     <Dark id="news">
-      <Track title="NEWS" arrowTheme="dark" className="gap-4 pc:gap-6">
+      <Track title="The Inspection Tour" arrowTheme="dark" className="gap-4 pc:gap-6">
         {news.map((t, i) => (
           <Link
             key={t}
@@ -417,9 +376,9 @@ export function News() {
           href="#"
           className="text-[12px] text-white/30 underline underline-offset-4 transition-colors hover:text-white/60"
         >
-          Notice of caution
+          Departs every Sunday · ¥550,000 per person, tax included
         </Link>
-        <TextLink white>View all</TextLink>
+        <TextLink white>Reserve Your Seat</TextLink>
       </div>
     </Dark>
   );
@@ -432,7 +391,7 @@ export function Stories() {
   return (
     <>
       <Dark id="owners">
-        <Track title="Life with the houses" arrowTheme="dark" className="gap-4 pc:gap-6">
+        <Track title="Client Voices" arrowTheme="dark" className="gap-4 pc:gap-6">
           {owners.map((t, i) => (
             <Link
               key={t}
@@ -450,12 +409,12 @@ export function Stories() {
           ))}
         </Track>
         <div className="mt-10">
-          <TextLink white>View all</TextLink>
+          <TextLink white>Arrange a Consultation</TextLink>
         </div>
       </Dark>
 
       <Dark id="creators" bg="#141414">
-        <Track title="The people who build them" arrowTheme="dark" className="gap-4 pc:gap-6">
+        <Track title="The World of JWD" arrowTheme="dark" className="gap-4 pc:gap-6">
           {creators.map(([n, t], i) => (
             <Link
               key={n}
@@ -476,7 +435,7 @@ export function Stories() {
           ))}
         </Track>
         <div className="mt-10">
-          <TextLink white>View all</TextLink>
+          <TextLink white>JWD Group</TextLink>
         </div>
       </Dark>
     </>
@@ -487,32 +446,41 @@ export function Stories() {
    MOVIES carousel
 ───────────────────────────────────────────── */
 export function Movies() {
+  const dlg = useRef<HTMLDialogElement>(null);
+  const [cur, setCur] = useState<(typeof movies)[number] | null>(null);
+  const close = () => { dlg.current?.close(); setCur(null); };
   return (
     <Dark id="movies" bg="#0a0a0a">
-      <Track title="Movie gallery" arrowTheme="dark" className="gap-4 pc:gap-6">
-        {movies.map((t, i) => (
-          <Link
-            key={t}
-            href="#"
-            className="flex w-[280px] flex-col gap-3 transition-opacity hover:opacity-70 pc:w-[380px] pc:gap-4"
+      <Track title="Property Videos" arrowTheme="dark" className="gap-4 pc:gap-6">
+        {movies.map((m) => (
+          <button
+            key={m.title}
+            type="button"
+            onClick={() => { setCur(m); dlg.current?.showModal(); }}
+            className="flex w-[280px] flex-col gap-3 text-left transition-opacity hover:opacity-70 pc:w-[380px] pc:gap-4"
           >
-            <div
-              className="relative aspect-video w-full overflow-hidden rounded-xl"
-              style={{
-                background: `linear-gradient(135deg, hsl(${(i * 59 + 10) % 360} 28% 18%), hsl(${(i * 59 + 50) % 360} 20% 8%))`,
-              }}
-            >
+            <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-[#181818]">
+              <Image src={m.poster} alt={m.title} fill sizes="380px" className="object-cover" />
               {/* Play button */}
-              <span className="absolute top-1/2 left-1/2 z-[2] size-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black/40 backdrop-blur-sm transition-transform duration-200 hover:scale-110" />
+              <span className="absolute top-1/2 left-1/2 z-[2] size-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black/40 backdrop-blur-sm" />
               <i className="absolute top-1/2 left-1/2 z-[3] -translate-x-[25%] -translate-y-1/2 border-y-[8px] border-l-[14px] border-y-transparent border-l-white" />
             </div>
-            <h4 className="text-[12px] font-semibold leading-[1.8] tracking-[0.02em] pc:text-[14px]">{t}</h4>
-          </Link>
+            <h4 className="text-[12px] font-semibold leading-[1.8] tracking-[0.02em] pc:text-[14px]">{m.title}</h4>
+          </button>
         ))}
       </Track>
       <div className="mt-10">
-        <TextLink white>View all</TextLink>
+        <TextLink white href="#lineup">View Residences</TextLink>
       </div>
+      <dialog
+        ref={dlg}
+        onClick={(e) => e.target === dlg.current && close()}
+        onClose={() => setCur(null)}
+        className="m-auto aspect-video w-[min(92vw,960px)] overflow-hidden rounded-2xl bg-black text-white backdrop:bg-black/80"
+      >
+        <button type="button" aria-label="Close" onClick={close} className="absolute top-3 right-4 z-10 text-[28px] leading-none text-white/70 hover:text-white">×</button>
+        {cur && <video key={cur.src} src={cur.src} poster={cur.poster} controls autoPlay playsInline className="size-full object-contain" />}
+      </dialog>
     </Dark>
   );
 }

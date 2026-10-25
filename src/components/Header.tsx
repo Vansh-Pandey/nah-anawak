@@ -3,7 +3,8 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
-import { menus, places } from "@/lib/data";
+import Image from "next/image";
+import { menus, properties } from "@/lib/data";
 import { Ph } from "./ui";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -49,14 +50,14 @@ export default function Header() {
 
   const t = dark ? "bg-panel text-white" : "bg-white/80 text-black";
   const drawerGroups: [string, string[]][] = [
-    ["Lineup", places.map((p) => p[0])], ["About", menus.about], ["Related services", menus.related], ["Company", menus.company],
+    ["Residences", properties.map((p) => p.name)], ["The ANAWAK Standard", menus.about], ["JWD Group", menus.related], ["Company", menus.company],
   ];
 
   return (
     <header className={`fixed top-0 left-0 z-[1000] w-full transition-transform duration-300 ease-in-out ${hidden ? "-translate-y-full" : ""}`}>
       <div className={`relative z-[3] flex h-[var(--header-h)] items-center justify-between border-b border-line px-5 py-[13px] pc:px-12 pc:py-[15px] backdrop-blur-[100px] ${t}`}>
         <h1 className="text-[15px] font-bold leading-none tracking-[.14em]">
-          <Link href="#top" className="transition-opacity duration-300 hover:opacity-80">NOT A HOTEL</Link>
+          <Link href="#top" className="transition-opacity duration-300 hover:opacity-80">ANAWAK</Link>
         </h1>
 
         <nav className="hidden pc:block ml-auto mr-9" onMouseLeave={() => setOpen(null)}>
@@ -64,18 +65,17 @@ export default function Header() {
             {(["lineup", "about", "related", "company"] as const).map((k) => (
               <li key={k} onMouseEnter={() => setOpen(k)} className="relative flex items-center">
                 <button type="button" className="h-[var(--header-h)] text-[12px] font-semibold leading-none tracking-[.02em]">
-                  {{ lineup: "Lineup", about: "About", related: "Related services", company: "Company" }[k]}
+                  {{ lineup: "Residences", about: "The ANAWAK Standard", related: "JWD Group", company: "Company" }[k]}
                 </button>
                 <div className={`fixed left-0 w-full max-h-[calc(100vh-var(--header-h))] overflow-auto bg-white text-black px-12 pt-6 pb-[60px] shadow-[0_0_12px_#00000040] transition-[opacity,visibility] duration-200
                   ${open === k ? "visible opacity-100" : "invisible opacity-0 delay-100"}`} style={{ top: "var(--header-h)" }}>
                   <div className="mx-auto flex max-w-[1200px] items-center justify-between py-6">
-                    <span className="text-[16px] font-medium tracking-[.04em]">{{ lineup: "Lineup", about: "About", related: "Related services", company: "Company" }[k]}</span>
-                    {k === "lineup" && <Link href="#lineup" className="text-[16px] font-medium tracking-[.04em] text-[var(--highlight)]">All lineup</Link>}
+                    <span className="text-[16px] font-medium tracking-[.04em]">{{ lineup: "Residences", about: "The ANAWAK Standard", related: "The World of JWD", company: "Company" }[k]}</span>
+                    {k === "lineup" && <Link href="#lineup" className="text-[16px] font-medium tracking-[.04em] text-[var(--highlight)]">All residences</Link>}
                   </div>
                   {k === "lineup" && (
                     <ul className="mx-auto grid max-w-[1200px] grid-cols-[repeat(auto-fill,minmax(160px,1fr))] gap-4">
-                      <li className="col-span-2"><Ph h={220} className="aspect-[812/385] rounded-lg" /></li>
-                      {places.map(([n, h]) => <li key={n}><Link href="#lineup"><Ph h={h} className="aspect-square rounded-lg" /></Link></li>)}
+                      {properties.map((p) => <li key={p.id}><Link href="#lineup" className="block text-[12px] font-medium leading-normal"><div className="relative mb-2 aspect-[16/10] overflow-hidden rounded-lg"><Image src={p.hero} alt={p.name} fill sizes="200px" className="object-cover" /></div>{p.name}</Link></li>)}
                     </ul>
                   )}
                   {(k === "about" || k === "related") && (
@@ -98,7 +98,7 @@ export default function Header() {
             <li onMouseEnter={() => setOpen("lang")} className="relative flex items-center">
               <button type="button" className="h-[var(--header-h)] text-[12px] font-semibold leading-none tracking-[.02em]">🌐 English</button>
               <ul className={`absolute top-full left-1/2 -translate-x-1/2 rounded-b-lg bg-white p-6 text-black shadow-[0_0_12px_#00000040] transition-[opacity,visibility] duration-200 ${open === "lang" ? "visible opacity-100" : "invisible opacity-0"}`}>
-                {["English", "日本語", "简体中文"].map((l) => <li key={l}><button type="button" className="whitespace-nowrap text-[12px] font-medium leading-[3]">{l}</button></li>)}
+                {["English", "日本語"].map((l) => <li key={l}><button type="button" className="whitespace-nowrap text-[12px] font-medium leading-[3]">{l}</button></li>)}
               </ul>
             </li>
           </ul>
@@ -106,7 +106,7 @@ export default function Header() {
 
         <div className="flex items-center gap-3">
           <Link href="#catalog" className="rounded-full bg-off px-[14px] py-[9px] text-[12px] font-medium leading-none text-ink transition-opacity duration-300 hover:opacity-80 pc:px-5 pc:py-3 pc:text-[13px]">
-            Request catalog
+            Private Consultation
           </Link>
           <button
             type="button" aria-label="Menu" aria-expanded={drawer} onClick={() => setDrawer((d) => !d)}
