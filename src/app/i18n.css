@@ -1,0 +1,37 @@
+/* ───────── language switcher ───────── */
+.langswitch { display: flex; align-items: center; gap: 2px; font-size: 1.3rem; }
+.langswitch a { padding: 6px 8px; color: #b2b2b8; border-radius: 100px; letter-spacing: .26px; line-height: 1; transition: color .3s ease-in-out; }
+.langswitch a:hover { color: #fff; }
+.langswitch a[data-active="true"] { color: #fff; font-weight: 500; }
+.langswitch a + a { border-left: 1px solid #ffffff40; border-radius: 0; margin-left: 4px; padding-left: 12px; }
+.langswitch--header { display: none; }
+@media (min-width: 769px) { .langswitch--header { display: flex; } }
+.langswitch--drawer { margin-top: 32px; font-size: 1.8rem; }
+.drawer .langswitch a { display: inline; padding: 8px 10px; font-size: 1.8rem; font-weight: 400; letter-spacing: 0; border-bottom: 0; }
+.drawer .langswitch a + a { padding-left: 14px; }
+
+/* ───────── Japanese typography ───────── */
+html:lang(ja) body { line-break: strict; word-break: auto-phrase; overflow-wrap: anywhere; }
+/* wide negative tracking is tuned for Latin; it crushes kana and kanji */
+html:lang(ja) :is(.hero__body, .message__text, .message__hl, .props__title, .news__title, .info__title, .center__frame .info__title,
+  .mod__h, .mod__t, .sub__h, .who__title, .pd__h2, .items__title, .csec__title, .enq__h, .excl__name, .page__title, .nums__v,
+  .pcard__name, .ptitle h1, .ncard__title, .catalog__text h3, .cote__hotel, .pd__relLabel) { letter-spacing: 0; }
+html:lang(ja) .hero__body, html:lang(ja) .message__text, html:lang(ja) .message__hl { line-height: 1.2; }
+html:lang(ja) .message__text, html:lang(ja) .message__hl { opacity: .1; }
+html:lang(ja) .message__hl { opacity: 1; }
+html:lang(ja) .info__desc, html:lang(ja) .who__desc, html:lang(ja) .csec__lead, html:lang(ja) .item__desc, html:lang(ja) .mod__d,
+  html:lang(ja) .citem__d, html:lang(ja) .svc__item p, html:lang(ja) .pd__p, html:lang(ja) .enq__cx { line-height: 1.8; }
+html:lang(ja) .sub__h, html:lang(ja) .info__title, html:lang(ja) .who__title { line-height: 1.35; }
+html:lang(ja) .sub__h { font-size: 2.8rem; }
+@media (min-width: 769px) {
+  html:lang(ja) .sub__h { font-size: 4rem; line-height: 1.4; }
+  html:lang(ja) .excl__name { font-size: 6rem; }
+  html:lang(ja) .info__title { max-width: 520px; }
+  html:lang(ja) .paras p { font-size: 3.4rem; line-height: 1.5; }
+  html:lang(ja) .mod__h { line-height: 1.3; }
+}
+html:lang(ja) .paras p { line-height: 1.5; }
+html:lang(ja) .header__link { letter-spacing: 0; }
+@media (min-width: 769px) and (max-width: 1280px) { html:lang(ja) .header__link { font-size: 1.2rem; } html:lang(ja) .header__links { gap: 20px; } }
+html:lang(ja) .pcard__area, html:lang(ja) .nums__t, html:lang(ja) .facts__row dt, html:lang(ja) .dlist__row dt, html:lang(ja) .pd__kicker,
+  html:lang(ja) .info__note, html:lang(ja) .who__note, html:lang(ja) .enq__sub, html:lang(ja) .sub__note { letter-spacing: .1em; text-transform: none; }

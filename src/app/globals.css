@@ -7,7 +7,7 @@
   --blue: #306fdb;
   --header-h: 68px;
   --padding-inline: 24px;
-  --font-english: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-english: var(--font-inter), var(--font-noto-jp), "Hiragino Sans", "Yu Gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 @media (min-width: 769px) {
   :root { --padding-inline: 48px; }

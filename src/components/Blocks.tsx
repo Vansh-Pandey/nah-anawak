@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
+import LLink from "./LLink";
 
-/** Full-height hero with a photo, centred title and a blue CTA (reference: How it works / Concierge). */
+/** Full-height hero with a photo, centred title and a blue CTA (reference: How it works / Concierge hero). */
 export function SubHero({ image, note, title, lead, cta }: {
   image: string; note?: string; title: string; lead?: string; cta?: { label: string; href: string };
 }) {
@@ -17,7 +17,7 @@ export function SubHero({ image, note, title, lead, cta }: {
         </div>
         {cta && (
           <div className="sub__cta">
-            <Link className="btn btn--blue" href={cta.href}>{cta.label}</Link>
+            <LLink className="btn btn--blue" href={cta.href}>{cta.label}</LLink>
           </div>
         )}
       </div>
@@ -43,7 +43,7 @@ export function ItemCards({ title, items }: { title?: string; items: ItemCard[] 
             </div>
             {it.cta && (
               <div className="item__bottom">
-                <Link className="item__btn" href={it.cta.href}>{it.cta.label}</Link>
+                <LLink className="item__btn" href={it.cta.href}>{it.cta.label}</LLink>
               </div>
             )}
           </section>
@@ -65,7 +65,7 @@ export function Module({ title, text, cta, rows }: {
             <h2 className="mod__h">{title}</h2>
             <p className="mod__p">{text}</p>
           </div>
-          <Link className="mod__btn" href={cta.href}>{cta.label}</Link>
+          <LLink className="mod__btn" href={cta.href}>{cta.label}</LLink>
         </div>
         <div className="mod__right">
           {rows.map((r) => (
@@ -83,9 +83,9 @@ export function Module({ title, text, cta, rows }: {
   );
 }
 
-export function Facts({ rows, dark }: { rows: [string, string][]; dark?: boolean }) {
+export function Facts({ rows }: { rows: [string, string][] }) {
   return (
-    <dl className="facts" data-dark={dark}>
+    <dl className="facts">
       {rows.map(([k, v]) => (
         <div className="facts__row" key={k}>
           <dt>{k}</dt>

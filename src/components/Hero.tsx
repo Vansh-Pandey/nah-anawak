@@ -3,11 +3,13 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useT } from "@/lib/locale";
 
 gsap.registerPlugin(ScrollTrigger);
 
 /** Pinned hero (image + giant wordmark) followed by the scroll-lit manifesto. */
 export default function Hero({ children }: { children?: React.ReactNode }) {
+  const t = useT();
   const root = useRef<HTMLDivElement>(null);
   const msg = useRef<HTMLDivElement>(null);
 
@@ -49,26 +51,26 @@ export default function Hero({ children }: { children?: React.ReactNode }) {
             <p>ANAWAK</p>
           </div>
           <p className="hero__body">
-            <span data-hero-line>Own More Than a Home.</span>
+            <span data-hero-line>{t("Own More Than a Home.", "単なる住まいを超える価値を。")}</span>
             <br />
-            <span data-hero-line>Own Your Future.</span>
+            <span data-hero-line>{t("Own Your Future.", "未来の資産をその手に。")}</span>
           </p>
         </div>
       </div>
       <div className="stage">
         <div className="message" ref={msg} id="gsap_message">
           <p>
-            <span className="message__hl">ANAWAK is not</span>
-            <span className="message__text" data-msg-text>only</span>
-            <span className="message__text" data-msg-text>selling</span>
-            <span className="message__text" data-msg-text>property.</span>
+            <span className="message__hl">{t("ANAWAK is not", "ANAWAKが提供するのは、")}</span>
+            <span className="message__text" data-msg-text>{t("only", "単なる不動産")}</span>
+            <span className="message__text" data-msg-text>{t("selling", "だけでは")}</span>
+            <span className="message__text" data-msg-text>{t("property.", "ありません。")}</span>
           </p>
           <p>
-            <span className="message__text" data-msg-text>ANAWAK is</span>
-            <span className="message__text" data-msg-text>curating</span>
+            <span className="message__text" data-msg-text>{t("ANAWAK is", "ANAWAKは、")}</span>
+            <span className="message__text" data-msg-text>{t("curating", "妥協のない")}</span>
             <br className="message__sp" />
-            <span className="message__text" data-msg-text>a life without</span>
-            <span className="message__text" data-msg-text>compromise.</span>
+            <span className="message__text" data-msg-text>{t("a life without", "極上の日常を")}</span>
+            <span className="message__text" data-msg-text>{t("compromise.", "デザインします。")}</span>
           </p>
         </div>
         {children}
