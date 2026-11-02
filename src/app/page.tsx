@@ -13,7 +13,7 @@ export default function Home() {
         title="Trust. Lifestyle. Legacy."
         desc="Three principles guide every residence we curate — and every relationship we build."
         cta="Learn more"
-        href="/#journey"
+        href="/how-it-works"
         image="/anawak/lifestyle-pool.jpg"
       />
       <InfoCenter
@@ -31,7 +31,7 @@ export default function Home() {
         title="Walk the city before you own it."
         desc="Six days of seminars, private property tours, and a taste of the life you're considering. Departs every Sunday."
         cta="Reserve Your Seat"
-        href="/enquire"
+        href="/inspection-tour"
         image="/anawak/desert.jpg"
       />
       <GroupSection />

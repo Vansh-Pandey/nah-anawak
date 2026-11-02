@@ -127,10 +127,11 @@ export const groupSites = [
 
 export const navLinks = [
   { label: "Residences", href: "/properties" },
-  { label: "Lifestyle", href: "/#standard" },
-  { label: "Legacy", href: "/#journey" },
-  { label: "JWD Group", href: "/#jwd" },
-  { label: "Company Profile", href: "/company-profile" },
+  { label: "How it works", href: "/how-it-works" },
+  { label: "Concierge", href: "/concierge" },
+  { label: "Lifestyle", href: "/lifestyle" },
+  { label: "Legacy", href: "/legacy" },
+  { label: "About us", href: "/about" },
 ];
 
 export const companyProfile = {
@@ -178,3 +179,102 @@ export const coteDazur = {
   ],
   offerImage: "/properties/cote-dazur/7.jpg",
 };
+
+/* ───────── Shared page content (ANAWAK site copy) ───────── */
+
+export const pillars = [
+  {
+    n: "01",
+    title: "Trust",
+    body: "Professional expertise and transparent advice, built on long-term relationships and unwavering financial confidence. Guidance you can rely on across generations.",
+    points: ["Professional expertise", "Transparent advice", "Long-term relationships", "Financial confidence"],
+    image: "/anawak/tower.jpg",
+  },
+  {
+    n: "02",
+    title: "Lifestyle",
+    body: "Beautiful architecture, world-class amenities, and healthy living. Family happiness within a truly global community, on some of the world's most serene waterfronts.",
+    points: ["Beautiful architecture", "World-class amenities", "Family happiness", "Global community"],
+    image: "/anawak/bikini_image.webp",
+  },
+  {
+    n: "03",
+    title: "Legacy",
+    body: "Wealth preservation for future generations through international diversification and timeless value. Assets chosen not for a season, but for a century.",
+    points: ["Wealth preservation", "Future generations", "International diversification", "Timeless value"],
+    image: "/anawak/pillar-legacy.jpg",
+  },
+];
+
+export const journey = [
+  { n: "01", title: "Private Consultation", body: "An unhurried conversation — in English or Japanese — to understand your family, your goals, and the life you envision.", image: "/anawak/terrace.jpg" },
+  { n: "02", title: "Curated Selection", body: "A shortlist of residences chosen for architecture, waterfront, and enduring value. Never a catalogue — always a curation.", image: "/properties/seahorse/8.jpg" },
+  { n: "03", title: "Seamless Acquisition", body: "Legal, financial, and residency guidance handled with private-banking precision, from first viewing to final signature.", image: "/anawak/interior.jpg" },
+  { n: "04", title: "Enduring Stewardship", body: "Management, advisory, and legacy planning that continues long after the keys are yours — across generations.", image: "/anawak/lifestyle-pool.jpg" },
+];
+
+export const services = [
+  { title: "Purchase Support", body: "Support from property selection through contract, via a local entity." },
+  { title: "Operations Support", body: "Assistance confirming matters related to hotel operation and rental management." },
+  { title: "Financing Consultation", body: "Consultation on funding plans that leverage domestic Japanese real estate." },
+  { title: "Professional Coordination", body: "Guidance on a confirmation framework involving tax accountants and lawyers." },
+];
+
+export const lifestyle = [
+  { label: "Resort Living", image: "/anawak/bikini_image.webp" },
+  { label: "Waterfront Calm", image: "/anawak/lifestyle-pool.jpg" },
+  { label: "Elegant Interiors", image: "/anawak/interior.jpg" },
+  { label: "Family Moments", image: "/anawak/terrace.jpg" },
+];
+
+export const tour = {
+  badge: "Departs Every Sunday",
+  title: "Walk the city before you own it.",
+  desc: "Six days in Dubai — seminars, private property tours, and a taste of the life you're considering. Round-trip flights included, every Sunday.",
+  facts: [
+    ["Tour Price", "¥550,000 per person, tax included"],
+    ["Duration", "6 Days, 5 Nights"],
+    ["Departure", "Every Sunday — Narita, Haneda, or Kansai"],
+    ["Airfare", "Round-trip, economy class, included"],
+    ["Additional Guest", "+¥440,000 per person"],
+  ] as [string, string][],
+  note: "Round-trip airfare is included in the tour price — nothing more to book before you land.",
+  how: ["Fly to Dubai", "Sightsee & Experience", "Tour the Real Estate", "Take the First Step"],
+  days: [
+    { label: "Day 1", title: "Arrival & the Desert", image: "/anawak/day1.jpg", body: "Arrive in Dubai and settle in with a half-day tour of Al Seef, the Gold Souk, and the Spice Souk. By afternoon, check into ROVE Downtown or Paramount Hotel, then head into the dunes for a 4x4 desert safari — dune bashing, belly dancing, a fire show, and a Bedouin BBQ dinner under the stars." },
+    { label: "Day 2", title: "Seminar & Property Tours", image: "/anawak/day2.jpg", body: "A four-hour morning seminar covers Dubai's market, tax position, and ownership structures, lunch included. In the afternoon, tour developer showrooms and shortlisted properties with our advisors, then close the day with dinner overlooking the Dubai Fountain's illuminated show." },
+    { label: "Day 3", title: "A Day at Your Own Pace", image: "/anawak/day3.jpg", body: "An open day to explore Dubai on your own terms — the view from Burj Khalifa, an afternoon at The Dubai Mall, or, for those further along, time set aside with our team to move toward a contract." },
+    { label: "Day 4", title: "Marina Cruise & Departure Prep", image: "/anawak/day4.jpg", body: "Check out at midday, with the afternoon free for an optional tour or final paperwork. In the evening, a dinner cruise aboard a traditional dhow through Dubai Marina, before a late private transfer to the airport for the overnight flight home." },
+    { label: "Day 5", title: "Home", image: "/anawak/day5.jpg", body: "Touch down back in Japan — at Narita, Haneda, or Kansai — six days after you left, with a clear, first-hand sense of what ownership in Dubai could mean for you." },
+  ],
+  included: [
+    "Round-trip airfare (economy class)",
+    "5 nights' hotel accommodation with breakfast",
+    "Private car transfers (airport ⇄ hotel and more)",
+    "Dubai seminar, lunch included",
+    "Real estate tour of developer showrooms",
+    "Dinner cruise aboard a Marina dhow",
+    "Desert safari with BBQ dinner",
+    "Japanese-speaking guide support throughout",
+    "On-trip support, including contract assistance",
+  ],
+  excluded: [
+    "Optional tours",
+    "Some lunches and dinners",
+    "Personal food, drink, and souvenir expenses",
+    "Overseas travel insurance (optional but recommended)",
+  ],
+  footnote: "Flight times vary by season. The same price applies for twin or double occupancy.",
+};
+
+export const legacy = {
+  title: "Secure your legacy.",
+  body: "Protect wealth across generations while enjoying a world-class lifestyle today.",
+  kicker: "For Generations to Come",
+};
+
+export const groupIntro = {
+  title: "One group. Many extraordinary worlds.",
+  desc: "ANAWAK stands within a constellation of destinations and partners that share one standard of quality.",
+};
+

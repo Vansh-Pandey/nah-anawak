@@ -8,9 +8,10 @@ export default function Footer() {
           <h3 className="footer__heading">Company</h3>
           <div className="footer__inner">
             <Link className="footer__link" href="/company-profile">Company Profile</Link>
-            <Link className="footer__link" href="/#about">About JWD Group</Link>
-            <Link className="footer__link" href="/#jwd">The World of JWD</Link>
+            <Link className="footer__link" href="/about">About us</Link>
+            <Link className="footer__link" href="/jwd-group">The World of JWD</Link>
             <Link className="footer__link" href="/properties">Residences</Link>
+            <Link className="footer__link" href="/how-it-works">How it works</Link>
           </div>
         </section>
         <section className="footer__section">
@@ -18,7 +19,8 @@ export default function Footer() {
           <div className="footer__inner">
             <Link className="footer__link" href="/enquire">Private Consultation</Link>
             <Link className="footer__link" href="/#portfolio">Request the Portfolio</Link>
-            <Link className="footer__link" href="/enquire">Enquire</Link>
+            <Link className="footer__link" href="/inspection-tour">Inspection Tour</Link>
+            <Link className="footer__link" href="/contact">Contact us</Link>
           </div>
         </section>
       </div>
