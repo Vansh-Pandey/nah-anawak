@@ -1,10 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Noto_Sans_JP, Oswald } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Effects from "@/components/Effects";
 
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
-const noto = Noto_Sans_JP({ variable: "--font-noto-jp", subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
-const oswald = Oswald({ variable: "--font-oswald", subsets: ["latin"], weight: ["500", "600"] });
+const inter = Inter({ variable: "--font-inter", subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
 
 export const metadata: Metadata = {
   title: "ANAWAK — Own More Than a Home. Own Your Future.",
@@ -15,8 +16,13 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1, view
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${noto.variable} ${oswald.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={inter.variable}>
+      <body>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+        <Effects />
+      </body>
     </html>
   );
 }
