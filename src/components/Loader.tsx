@@ -18,7 +18,7 @@ export default function Loader() {
     };
     if (document.readyState === "complete") finish();
     else window.addEventListener("load", finish, { once: true });
-    const safety = window.setTimeout(() => setHide(true), 8000); // never block the page
+    const safety = window.setTimeout(() => setHide(true), 3500); // never block the page
     return () => {
       window.removeEventListener("load", finish);
       window.clearTimeout(t);
