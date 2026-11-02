@@ -59,6 +59,7 @@ export default function Hero({ children }: { children?: React.ReactNode }) {
         <div className="message" ref={msg} id="gsap_message">
           <p>
             <span className="message__hl">ANAWAK is not</span>
+            <span className="message__text" data-msg-text>only</span>
             <span className="message__text" data-msg-text>selling</span>
             <span className="message__text" data-msg-text>property.</span>
           </p>

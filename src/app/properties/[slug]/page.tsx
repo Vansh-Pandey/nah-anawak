@@ -7,7 +7,7 @@ import { benefits, properties } from "@/lib/data";
 type Params = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return properties.map((p) => ({ slug: p.slug }));
+  return properties.filter((p) => p.specs).map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
@@ -19,15 +19,15 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function PropertyPage({ params }: Params) {
   const { slug } = await params;
   const p = properties.find((x) => x.slug === slug);
-  if (!p) notFound();
+  if (!p || !p.specs) notFound();
   const others = properties.filter((x) => x.slug !== p.slug);
   const specs: [string, string][] = [
     ["Price", p.price],
-    ["Floor Area", p.specs.floorArea],
-    ["Floor Plan", p.specs.floorPlan],
-    ["Number of Bedrooms", p.specs.bedrooms],
-    ["Investment Information", p.specs.investment],
-    ["Additional Information", p.specs.additional],
+    ["Floor Area", p.specs!.floorArea],
+    ["Floor Plan", p.specs!.floorPlan],
+    ["Number of Bedrooms", p.specs!.bedrooms],
+    ["Investment Information", p.specs!.investment],
+    ["Additional Information", p.specs!.additional],
   ];
 
   return (

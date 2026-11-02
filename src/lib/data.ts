@@ -12,7 +12,7 @@ export type Property = {
   gallery: string[];
   videos: string[];
   documents: { label: string; href: string }[];
-  specs: { floorArea: string; floorPlan: string; bedrooms: string; investment: string; additional: string };
+  specs?: { floorArea: string; floorPlan: string; bedrooms: string; investment: string; additional: string };
 };
 
 const g = (slug: string, n: number) => Array.from({ length: n }, (_, i) => `/properties/${slug}/${i + 1}.jpg`);
@@ -86,20 +86,12 @@ export const properties: Property[] = [
     slug: "cote-dazur",
     name: "CÔTE D'AZUR",
     tagline: "The glamour of the French Riviera, set on the Arabian Gulf.",
-    price: "$610,000 – $1,220,000",
+    price: "$681,000 – $860,000",
     image: "/properties/cote-dazur/2.jpg",
     theme: "white",
     gallery: g("cote-dazur", 11),
     videos: ["/properties/cote-dazur/video-1.mp4", "/properties/cote-dazur/video-2.mp4", "/properties/cote-dazur/video-3.mp4"],
     documents: [],
-    specs: {
-      floorArea: "38 – 172 m²",
-      floorPlan: "Studio, Standard Room / 1BR, and End Suite / 2BR",
-      bedrooms: "Studio – 2",
-      investment:
-        "Four hotel concepts — Monaco, Nice, Cannes, and St. Tropez — sharing one resort/beach environment; unit layouts vary by concept",
-      additional: "Standard studios 38–45 m² · 1BR 73–172 m² · End Suite 2BR 142–144 m²",
-    },
   },
 ];
 
@@ -163,3 +155,26 @@ export const interests = [
   "Inspection Tour",
   "General Consultation & Inquiries",
 ];
+
+/** Côte d'Azur is made up of two hotels — Nice and St. Tropez. Figures are from the ANAWAK reference page (Japanese). */
+export const coteDazur = {
+  label: "Boutique Hotel Residence",
+  brand: "IHG Hotels & Resorts",
+  description:
+    "A hotel with the atmosphere of the south of France. ANAWAK handles 5 rooms in this hotel, with owner benefits such as a 12-year owner benefit and 14 free nights a year.",
+  price: "$681,000 – $860,000",
+  units: "5 rooms / Furnished",
+  benefit: "12-year rental guarantee (4% annually)",
+  types: [
+    ["Type 1", "$681,000"],
+    ["Type 2", "$681,000"],
+    ["Type 3", "$739,000"],
+    ["Type 4", "$817,000"],
+    ["Type 5", "$860,000"],
+  ] as [string, string][],
+  hotels: [
+    { slug: "nice", name: "NICE", hotel: "VOCO Dubai Nice Heart of Europe", image: "/properties/cote-dazur/2.jpg" },
+    { slug: "st-tropez", name: "ST. TROPEZ", hotel: "VOCO Dubai St. Tropez Heart of Europe", image: "/properties/cote-dazur/9.jpg" },
+  ],
+  offerImage: "/properties/cote-dazur/7.jpg",
+};
